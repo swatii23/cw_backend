@@ -1,8 +1,9 @@
 const express = require("express")
 
-const router = express.Router()
+const authRouter = express.Router()
 
-router.post("/signup", async(req, res) => {
+
+authRouter.post("/signup", async(req, res) => {
     try {
         
     } catch (error) {
@@ -10,3 +11,9 @@ router.post("/signup", async(req, res) => {
         res.status(500).send(error)
     }
 })
+
+authRouter.post("login", () => {
+
+})
+
+module.exports = { authRouter }
