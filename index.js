@@ -1,8 +1,6 @@
-const express = require("express")
-require("dotenv").config()
-const cors = require("cors")
-
-const connection = require("./config/db")
+const { express, cors } = require("./imports/module.import")
+const { connection } = require("./imports/config.import")
+const { authRouter } = require("./imports/route.import")
 
 const app = express()
 
@@ -13,6 +11,7 @@ app.use(cors(
     }
 ))
 
+app.use("/auth", authRouter)
 
 const port = process.env.PORT || 8080
 app.listen(port, async() => {
