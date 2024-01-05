@@ -1,19 +1,10 @@
-const express = require("express")
+const express = require("../imports/module.import")
+const { signupController, loginController } = require("../imports/controller.import")
 
 const authRouter = express.Router()
 
+authRouter.post("/signup", signupController)
 
-authRouter.post("/signup", async(req, res) => {
-    try {
-        
-    } catch (error) {
-        console.error(error)
-        res.status(500).send(error)
-    }
-})
-
-authRouter.post("login", () => {
-
-})
+authRouter.post("login", loginController)
 
 module.exports = { authRouter }
