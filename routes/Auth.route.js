@@ -4,7 +4,7 @@ const { createHash } = require("../imports/middleware.import")
 
 const authRouter = express.Router()
 
-authRouter.post("/signup", createHash, signupController)
+authRouter.post("/signup", signupController)
 
 authRouter.post("/login", loginController)
 
