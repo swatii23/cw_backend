@@ -134,11 +134,26 @@ const getCartData = asyncHandler(async (req, res) => {
     // Find all cart items for the specific user
     const cartItems = await Cartmodel.find({ userId });
 
-    res.status(200).json(cartItems);
+    // Extract productIds from cartItems
+    const productIds = cartItems.map((cartItem) => cartItem.productId);
+
+    // Fetch products associated with the productIds
+    const products = await Productmodel.find({ _id: { $in: productIds } });
+
+    // Combine cartItems with associated products
+    const cartData = cartItems.map((cartItem) => {
+      const associatedProduct = products.find((product) => product._id.toString() === cartItem.productId.toString());
+      return {
+        cartItem,
+        product: associatedProduct,
+      };
+    });
+
+    res.status(200).json(cartData);
   } catch (error) {
     res.status(500).json({ message: 'Internal Server Error' });
   }
-});
+})
 
 module.exports = {
   getCartData,
