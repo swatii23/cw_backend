@@ -1,6 +1,6 @@
 const { express, cors } = require("./imports/module.import")
 const { connection } = require("./imports/config.import")
-const { authRouter } = require("./imports/route.import")
+const { authRouter, productRouter, cartRouter, wishlistRouter } = require("./imports/route.import")
 
 const app = express()
 
@@ -12,6 +12,9 @@ app.use(cors(
 ))
 
 app.use("/auth", authRouter)
+app.use("/products", productRouter)
+app.use("/cart", cartRouter)
+app.use("/wishlist", wishlistRouter)
 
 const port = process.env.PORT || 8080
 app.listen(port, async() => {

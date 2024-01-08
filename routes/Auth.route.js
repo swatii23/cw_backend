@@ -6,6 +6,6 @@ const authRouter = express.Router()
 
 authRouter.post("/signup", createHash, signupController)
 
-authRouter.post("login", loginController)
+authRouter.post("/login", loginController)
 
 module.exports = { authRouter }
