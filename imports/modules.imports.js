@@ -1,16 +1,19 @@
-const express = require("express")
-require("dotenv").config()
-const cors = require("cors")
-const mongoose = require("mongoose")
-const jwt = require("jsonwebtoken")
-const bcrypt = require("bcrypt")
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const colors = require("colors")
 const asyncHandler = require("express-async-handler")
+require("dotenv").config()
 
 module.exports = {
-    express,
-    cors,
-    mongoose,
-    jwt,
-    bcrypt,
-    asyncHandler
+     express,
+     mongoose,
+     bcrypt,
+     asyncHandler,
+     colors,
+     cors,
+     jwt,
+
 }

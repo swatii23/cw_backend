@@ -1,6 +1,4 @@
-const { authRouter } = require("../routes/Auth.route")
-const { productRouter } = require("../routes/Product.route")
-const { cartRouter } = require("../routes/Cart.route")
-const { wishlistRouter } = require("../routes/Wishlist.route")
+const { productRoutes } = require("../routes/Product.routes")
+const { authRoutes } = require("../routes/Auth.routes")
 
-module.exports = { authRouter, productRouter, cartRouter, wishlistRouter }
+module.exports = { productRoutes, authRoutes }
