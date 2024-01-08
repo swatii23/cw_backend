@@ -4,7 +4,7 @@ const { asyncHandler } = require("../imports/module.import")
 
 const addToCart = asyncHandler(async (req, res) => {
     const { userId } = req;
-    const { productId } = req.params;
+    const  productId  = req.params.id;
 
     try {
       // Check if the item is already in the cart for the specific user
