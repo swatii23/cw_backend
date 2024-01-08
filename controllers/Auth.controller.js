@@ -1,5 +1,5 @@
 const { asyncHandler } = require("../imports/modules.imports")
-const { generateToken } = require('../imports/configs.imports')
+const { token } = require('../imports/configs.imports')
 const { UserModel } = require('../imports/models.imports')
 const { mongoose, bcrypt } = require("../imports/modules.imports");
 
@@ -22,7 +22,7 @@ const signupController = asyncHandler(async (req, res) => {
           res.status(200).json({
                _id: user._id,
                email: user.email,
-               token: generateToken(user._id)
+               token: token(user._id)
           })
      } else {
           res.status(400).json({msg: "Feild to create the User"})
@@ -36,7 +36,7 @@ const loginController = asyncHandler(async (req, res) => {
           res.status(200).json({
                _id: user._id,
                email: user.email,
-               token: generateToken(user._id)
+               token: token(user._id)
           });
      } else {
           console.log('Entered Password:', password);

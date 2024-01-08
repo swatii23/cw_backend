@@ -1,4 +1,4 @@
-const { authorization } = require("../middlewares/authentication.middleware")
+const { authorize } = require("../middlewares/authorize.middleware")
 const { createHash } = require("../middlewares/hashing.middleware")
 
-module.exports = { authorization, createHash }
+module.exports = { authorize, createHash }

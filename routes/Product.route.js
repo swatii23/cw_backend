@@ -1,6 +1,6 @@
 const { express } = require("../imports/modules.imports")
 const { ProductModel } = require("../imports/models.imports")
-const { authorize } = require("../imports/middlewares.imports")
+const { authorize } = require("../imports/middleware.imports")
 
 
 const { addProductIntoCart, removeProductFromCart, getProductController, addProductIntoWishlist, removeProductFromWishlist, getCartController, getWishListController, getSingleProduct,addProductsQuentityCart } = require("../imports/controllers.imports")

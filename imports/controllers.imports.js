@@ -1,17 +1,4 @@
-const {signupController, loginController} = require("../controllers/Auth.controller")
-const { getProduct, getSingleProduct } = require("../controllers/Product.controller")
-const { getCartData, addToCart, removeItemFromCart } = require("../controllers/Cart.controller")
-const { addItemToWishlist, removeItemFromWishlist, getWishlistData } = require("../controllers/Wishlist.controller")
+const { signupController, loginController } = require("../controllers/Auth.controller")
+const { addProductIntoCart, removeProductFromCart, getProductController, addProductIntoWishlist, removeProductFromWishlist, getCartController, getWishListController, getSingleProduct, addProductsQuentityCart } = require("../controllers/Product.controller")
 
-module.exports = { 
-    signupController, 
-    loginController,
-    getProduct,
-    getSingleProduct,
-    getCartData,
-    addToCart,
-    removeItemFromCart,
-    addItemToWishlist,
-    removeItemFromWishlist,
-    getWishlistData
-}
+module.exports = { signupController, loginController, addProductIntoCart, removeProductFromCart, getProductController, addProductIntoWishlist, removeProductFromWishlist, getCartController, getWishListController, addProductsQuentityCart, getSingleProduct }

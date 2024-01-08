@@ -1,4 +1,4 @@
-const Usermodel = require("../model/User.model")
+const {Usermodel} = require("../model/User.model")
 const { Productmodel } = require("../model/Product.model")
 
 
