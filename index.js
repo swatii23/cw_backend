@@ -8,7 +8,7 @@ const app = express()
 app.use(express.json())
 app.use(cors(
     {
-        origin: ["http://127.0.0.1:5173"], // Add your frontend origin(s) here
+        origin: "*", // Add your frontend origin(s) here
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
     optionsSuccessStatus: 204,
