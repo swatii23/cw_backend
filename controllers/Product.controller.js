@@ -1,4 +1,4 @@
-const { Usermodel, Productmodel } = require("../imports/model.import")
+const { Productmodel } = require("../imports/model.import")
 const { asyncHandler } = require("../imports/module.import")
 
 const getProduct = asyncHandler(async(req, res) => {
