@@ -11,6 +11,7 @@ app.use(cors(
         credentials: true
     }
 ))
+app.options('/auth/login', cors())
 
 app.use("/auth", authRouter)
 app.use("/products", productRouter)
