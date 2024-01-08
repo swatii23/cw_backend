@@ -1,6 +1,7 @@
-const { express, cors } = require("./imports/module.import")
+const { express } = require("./imports/module.import")
 const { connection } = require("./imports/config.import")
 const { authRouter, productRouter, cartRouter, wishlistRouter } = require("./imports/route.import")
+const cors = require("cors")
 
 const app = express()
 
