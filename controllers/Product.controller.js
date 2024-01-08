@@ -20,7 +20,6 @@ const getSingleProduct = asyncHandler(async(req, res) => {
     }
 })
 
-
 module.exports = { 
     getProduct, 
     getSingleProduct }
