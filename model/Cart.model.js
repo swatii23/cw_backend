@@ -3,7 +3,8 @@ const { mongoose } = require("../imports/module.import")
 const cartSchema = mongoose.Schema({
     productId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Product"
+        ref: "Product",
+        required: true
     },
     quantity: {
         type: Number
