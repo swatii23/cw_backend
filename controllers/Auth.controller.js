@@ -1,6 +1,7 @@
 const { asyncHandler } = require("../imports/module.import")
 const { Usermodel } = require("../imports/model.import")
 const { token } = require("../imports/config.import")
+const {bcrypt} = require("../imports/module.import")
 
 const loginController = asyncHandler(async(req, res) => {
     
