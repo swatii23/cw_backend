@@ -1,4 +1,4 @@
-const { bcrypt } = require("../imports/modules.imports")
+const { bcrypt } = require("../imports/module.import")
 
 const createHash = async(req, res, next) => {
     const { password } = req.body

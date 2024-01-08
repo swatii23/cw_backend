@@ -1,16 +1,17 @@
-const { express, cors } = require("./imports/modules.imports")
-const  connection  = require("./config/db")
-const { authorize } = require("./imports/middleware.imports")
-const { productRoutes, authRoutes } = require("./imports/routes.imports")
-
+const { express } = require("./imports/module.import")
+const { connection } = require("./imports/config.import")
+const { authRouter, productRouter, cartRouter, wishlistRouter } = require("./imports/route.import")
+const cors = require("cors")
 
 const app = express()
 
 app.use(express.json())
-app.use(cors())
+// app.use(cors())
 
-app.use("/", authRoutes)
-app.use("/products", productRoutes)
+app.use("/auth", authRouter)
+app.use("/products", productRouter)
+app.use("/cart", cartRouter)
+app.use("/wishlist", wishlistRouter)
 
 const port = process.env.PORT || 8080
 app.listen(port, async() => {
