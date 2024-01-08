@@ -8,11 +8,7 @@ const app = express()
 app.use(express.json())
 app.use(cors(
     {
-        origin: "*", // Add your frontend origin(s) here
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
-    optionsSuccessStatus: 204,
-    allowedHeaders: ["Content-Type", "Authorization"],
+        origin: "*"
     }
 ))
 
