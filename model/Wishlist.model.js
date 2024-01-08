@@ -1,4 +1,4 @@
-const { mongoose } = require('../imports/model.import');
+const { mongoose } = require('../imports/module.import');
 
 const wishlistSchema = mongoose.Schema({
   productId: {
