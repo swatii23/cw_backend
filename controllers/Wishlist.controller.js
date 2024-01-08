@@ -1,6 +1,6 @@
 // wishlistController.js
-const { Wishlistmodel } = require('../imports/model.import');
-const { asyncHandler } = require("../imports/module.import")
+const { Wishlistmodel } = require('../imports/models.imports');
+const { asyncHandler } = require("../imports/modules.imports")
 
 
   // Get wishlist data for a user

@@ -1,6 +1,6 @@
-const { express } = require("../imports/module.import")
-const { signupController, loginController } = require("../imports/controller.import")
-const { createHash } = require("../imports/middleware.import")
+const { express } = require("../imports/modules.imports")
+const { signupController, loginController } = require("../imports/controllers.imports")
+const { createHash } = require("../imports/middlewares.imports")
 
 const authRouter = express.Router()
 

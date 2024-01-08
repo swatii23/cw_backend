@@ -1,4 +1,4 @@
-const { jwt } = require("../imports/module.import")
+const { jwt } = require("../imports/modules.imports")
 
 const authorization = (req, res, next) => {
     const token = req.headers.authorization?.split(" ")[1]

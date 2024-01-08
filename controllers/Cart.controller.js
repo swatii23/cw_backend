@@ -1,5 +1,5 @@
-const { Cartmodel } = require("../imports/model.import")
-const { asyncHandler } = require("../imports/module.import")
+const { Cartmodel } = require("../imports/models.imports")
+const { asyncHandler } = require("../imports/modules.imports")
 
 
 const addToCart = asyncHandler(async (req, res) => {
