@@ -1,31 +1,31 @@
-// const { Cartmodel } = require("../imports/model.import")
-// const { asyncHandler } = require("../imports/module.import")
+const { Cartmodel } = require("../imports/model.import")
+const { asyncHandler } = require("../imports/module.import")
 
 
-// const addToCart = asyncHandler(async (req, res) => {
-//     const { userId } = req;
-//     const { productId } = req.params;
+const addToCart = asyncHandler(async (req, res) => {
+    const { userId } = req;
+    const { productId } = req.params;
 
-//     try {
-//       // Check if the item is already in the cart for the specific user
-//       const existingCartItem = await Cartmodel.findOne({ userId, productId });
+    try {
+      // Check if the item is already in the cart for the specific user
+      const existingCartItem = await Cartmodel.findOne({ userId, productId });
 
-//       if (existingCartItem) {
-//         // If the item is already in the cart, increase the quantity by 1
-//         existingCartItem.quantity += 1;
-//         await existingCartItem.save();
-//         res.json(existingCartItem);
-//       } else {
-//         // If the item is not in the cart, add a new cart item with quantity 1
-//         const newCartItem = new Cart({ userId, productId });
-//         await newCartItem.save();
-//         res.status(201).json(newCartItem);
-//       }
-//     } catch (error) {
-//       res.status(500).json({ message: 'Internal Server Error' });
-//     }
-//   },
-// )
+      if (existingCartItem) {
+        // If the item is already in the cart, increase the quantity by 1
+        existingCartItem.quantity += 1;
+        await existingCartItem.save();
+        res.json(existingCartItem);
+      } else {
+        // If the item is not in the cart, add a new cart item with quantity 1
+        const newCartItem = new Cart({ userId, productId });
+        await newCartItem.save();
+        res.status(201).json(newCartItem);
+      }
+    } catch (error) {
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  },
+)
 
 // const removeItemFromCart= asyncHandler( async (req, res) => {
 //     const { userId } = req;
@@ -76,31 +76,31 @@
 
 
 // cartController.js
-const { Cartmodel } = require('../imports/model.import');
-const { asyncHandler } = require('../imports/module.import');
+// const { Cartmodel } = require('../imports/model.import');
+// const { asyncHandler } = require('../imports/module.import');
 
-const addToCart = asyncHandler(async (req, res) => {
-  const { userId } = req;
-  const { productId } = req.params;
+// const addToCart = asyncHandler(async (req, res) => {
+//   const { userId } = req;
+//   const { productId } = req.params;
 
-  try {
-    const existingCartItem = await Cartmodel.findOne({ userId, productId });
+//   try {
+//     const existingCartItem = await Cartmodel.findOne({ userId, productId });
 
-    if (existingCartItem) {
-      // If the item is already in the cart, increase the quantity by 1
-      existingCartItem.quantity += 1;
-      await existingCartItem.save();
-      res.json(existingCartItem);
-    } else {
-      // If the item is not in the cart, add a new cart item with quantity 1
-      const newCartItem = new Cartmodel({ userId, productId, quantity: 1 });
-      await newCartItem.save();
-      res.status(201).json(newCartItem);
-    }
-  } catch (error) {
-    res.status(500).json({ message: 'Internal Server Error' });
-  }
-});
+//     if (existingCartItem) {
+//       // If the item is already in the cart, increase the quantity by 1
+//       existingCartItem.quantity += 1;
+//       await existingCartItem.save();
+//       res.json(existingCartItem);
+//     } else {
+//       // If the item is not in the cart, add a new cart item with quantity 1
+//       const newCartItem = new Cartmodel({ userId, productId, quantity: 1 });
+//       await newCartItem.save();
+//       res.status(201).json(newCartItem);
+//     }
+//   } catch (error) {
+//     res.status(500).json({ message: 'Internal Server Error' });
+//   }
+// });
 
 const removeItemFromCart = asyncHandler(async (req, res) => {
   const { userId } = req;
