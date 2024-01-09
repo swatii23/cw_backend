@@ -29,7 +29,7 @@ const addToCart = asyncHandler(async (req, res) => {
 
 const removeItemFromCart= asyncHandler( async (req, res) => {
     const { userId } = req;
-    const { productId } = req.params;
+    const  productId  = req.params.id;
 
     try {
       // Find the cart item for the specific user and product
