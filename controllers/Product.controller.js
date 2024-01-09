@@ -7,6 +7,7 @@ const getProduct = asyncHandler(async(req, res) => {
         res.status(200).json(products)
     } catch (error) {
         res.status(400).send("Something went wrong. Please try again.")
+        console.log(error)
     }
 })
 
