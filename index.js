@@ -12,6 +12,9 @@ app.use(cors(
     }
 ))
 
+app.get("/", (req, res) => {
+    res.send("API is working.")
+})
 app.use("/auth", authRouter)
 app.use("/products", productRouter)
 app.use("/cart", cartRouter)
