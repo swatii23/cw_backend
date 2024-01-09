@@ -17,7 +17,7 @@ const addToCart = asyncHandler(async (req, res) => {
         res.json(existingCartItem);
       } else {
         // If the item is not in the cart, add a new cart item with quantity 1
-        const newCartItem = await Cartmodel.create({ userId, productId });
+        const newCartItem = await Cartmodel.create({ userId, productId, quantity: 1 });
         // await newCartItem.save();
         res.status(201).json(newCartItem);
       }
