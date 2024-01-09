@@ -45,7 +45,7 @@ const removeItemFromCart= asyncHandler( async (req, res) => {
       //   await cartItem.save();
       //   res.json(cartItem);
       // } else {
-        await cartItem.remove();
+        await Cartmodel.findByIdAndDelete({ _id: cartItem._id })
         res.status(200).json({ message: 'Cart item removed successfully' });
       // }
     } catch (error) {
