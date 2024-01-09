@@ -40,14 +40,14 @@ const removeItemFromCart= asyncHandler( async (req, res) => {
       }
 
       // If the quantity is greater than 1, decrement it; otherwise, remove the item
-      if (cartItem.quantity > 1) {
-        cartItem.quantity -= 1;
-        await cartItem.save();
-        res.json(cartItem);
-      } else {
+      // if (cartItem.quantity > 1) {
+      //   cartItem.quantity -= 1;
+      //   await cartItem.save();
+      //   res.json(cartItem);
+      // } else {
         await cartItem.remove();
         res.status(200).json({ message: 'Cart item removed successfully' });
-      }
+      // }
     } catch (error) {
       res.status(500).json({ message: 'Internal Server Error' });
     }
