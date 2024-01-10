@@ -71,7 +71,7 @@ const removeItemFromCart= asyncHandler( async (req, res) => {
 const adjustQuantityInCart= asyncHandler( async (req, res) => {
   const { userId } = req;
   const  productId  = req.params.id;
-  const { quantity } = req.body
+  const { adjustment } = req.body
 
   try {
     // Find the cart item for the specific user and product
@@ -80,6 +80,8 @@ const adjustQuantityInCart= asyncHandler( async (req, res) => {
     if (!cartItem) {
       return res.status(404).json({ message: 'Cart item not found' });
     }
+
+    const quantity = cartItem.quantity + adjustment;
 
     await Cartmodel.findByIdAndUpdate({ _id: cartItem._id }, { quantity } )
     res.status(200).json({ message: 'Cart item updated successfully' });
