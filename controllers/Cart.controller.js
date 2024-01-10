@@ -2,6 +2,20 @@ const { Cartmodel } = require("../imports/model.import")
 const { asyncHandler } = require("../imports/module.import")
 
 
+const getCartData= asyncHandler( async (req, res) => {
+  const { userId } = req;
+
+  try {
+    // Find all cart items for the specific user
+    const cartItems = await Cartmodel.find({ userId });
+
+    res.status(200).json(cartItems);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+}
+)
+
 const addToCart = asyncHandler(async (req, res) => {
     const { userId } = req;
     const  productId  = req.params.id;
@@ -54,22 +68,31 @@ const removeItemFromCart= asyncHandler( async (req, res) => {
   },
 )
 
-const getCartData= asyncHandler( async (req, res) => {
-    const { userId } = req;
+const adjustQuantityInCart= asyncHandler( async (req, res) => {
+  const { userId } = req;
+  const  productId  = req.params.id;
+  const { quantity } = req.body
 
-    try {
-      // Find all cart items for the specific user
-      const cartItems = await Cartmodel.find({ userId });
+  try {
+    // Find the cart item for the specific user and product
+    const cartItem = await Cartmodel.findOne({ userId, productId });
 
-      res.status(200).json(cartItems);
-    } catch (error) {
-      res.status(500).json({ message: 'Internal Server Error' });
+    if (!cartItem) {
+      return res.status(404).json({ message: 'Cart item not found' });
     }
+
+    await Cartmodel.findByIdAndUpdate({ _id: cartItem._id }, { quantity } )
+    res.status(200).json({ message: 'Cart item updated successfully' });
+  
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error' });
   }
+},
 )
 
 module.exports = {
     getCartData,
     addToCart,
-    removeItemFromCart
+    removeItemFromCart,
+    adjustQuantityInCart
 }
